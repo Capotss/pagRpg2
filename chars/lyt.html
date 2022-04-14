@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUNARCANA - Lyt</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./styleC.css">
+    <style>
+    :root{
+    --var_corBorda: rgba(0, 247, 255,1);
+    --var_corBack0: rgba(0, 34, 34, 0.2);
+    --var_corBack1: rgba(17, 0, 77, 0.6);
+    --var_corBack2: rgba(0, 104, 107, 0.8);
+    --var_corBack3: rgba(0, 255, 200, 0.8);
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+       <a href="../index.html"><h1 class="header t">->RUNARCANA<-</h1></a>
+        <a href="../index.html"><h2 class="header">->Lyt<-</h2></a>
+    </header>
+    <main class="containerC">
+        <div class="basicInfo" onclick="fundoChange()">
+            <h1 class="nomeC">Lyt</h1>
+            <img src="../assets/lytfoto.jpg" alt="imgPers" class="imgPers" id="imgTyler" >
+            <div class="doida" id="doida">
+                <p class="infosC">Nome: <span class="spanC">Lyt</span> </p>
+                <p class="infosC">Origem: <span class="spanC">Vastaya</span></p>
+                <p class="infosC">Classe: <span class="spanC">Acólito</span></p>
+                <p class="infosC">Nível: <span class="spanC">Acólito 6</span></p>
+                <p class="infosC">Trabalho: <span class="spanC">Bêbado</span></p>
+                <p class="infosC">Região de origem: <span class="spanC">?</span></p>
+                <p class="infosC">Linguagens: <span class="spanC">Shurimane, ? e Vastaya</span></p>
+            </div>
+        </div>
+
+        <div class="persInfo">
+            <div class="tend">
+                <p id="tendC">TENDENCIA: </p><input placeholder="A Tendencia dele é?" maxlength="30" id="inpC"
+                    type="text" name="tendencia" class="tendC"> <button id="btnC" onclick="addText(inp)">OK</button><br>
+            </div>
+            <div id="feitos">
+                <p id="ft">FEITOS</p>
+                <input id="fp" placeholder="Qual feito deseja adicionar?"></input>
+                <button id="btn" class="btn" onclick="feitos()">Add</button>
+                <ul id="list"></ul>
+            </div>
+            <div id="tesouros">
+                <p id="ts">TESOURO PRESUMIDO</p>
+                <input placeholder="Nome do item" id="nomeT" style="max-width: 10vw;"></input>
+                <div>
+                    <div id="divspans"><span id="spanT"></span><span id="spanBtn"></span></div><button id="btnItem"
+                        onclick="addText2(inp3)">OK</button>
+                </div><br>
+                <div id="img">
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- SCRIPT  -->
+
+
+
+    <script>
+        let arrayCT = []
+        let arrayCTes = []
+        let arrayimgs = []
+        let array = []
+        let inp = document.getElementById("inpC")
+        let btn = document.getElementById("btnC")
+        let p = document.getElementById("tendC")
+        let list = document.getElementById("list")
+        let inp2 = document.getElementById("fp")
+        let inp3 = document.getElementById("nomeT")
+        let link = document.getElementById("spanT")
+        let fundo = document.getElementById("doida")
+        let tes = document.getElementById("tesouros")
+        let img = document.getElementById("img")
+        let spbtn = document.getElementById("spanBtn")
+        let btnTes = document.getElementById("btnTes")
+
+        inp.style.width = "10vw"
+        inp.style.marginLeft = "1vw"
+
+        onload = function () {
+            // TENDENCIA
+            arrayCT = JSON.parse(localStorage.getItem("cacheCLyt")) || []
+            p.innerHTML = arrayCT
+            if (arrayCT != `TENDENCIA: `) {
+                let delbtno = document.getElementsByClassName("del btn")[0]
+                delbtno.addEventListener("click", deltask)
+            }
+            // FEITOS
+            array = JSON.parse(localStorage.getItem('cacheC2Lyt')) || []
+            updateScreen2()
+            arrayCTes = JSON.parse(localStorage.getItem("cacheCTesLyt")) || []
+            link.innerHTML = arrayCTes
+            if (arrayCTes != ``) {
+                let delbtno2 = document.getElementById("delbtn2")
+                delbtno2.addEventListener("click", deltask3)
+            }
+            arrayimgs = JSON.parse(localStorage.getItem("cacheCTimgLyt")) || []
+            img.innerHTML = arrayimgs
+        }
+        let deltask = function delTask() {
+            p.innerText = `TENDENCIA: `
+            arrayCT = [`TENDENCIA: `]
+            localStorage.setItem("cacheCLyt", JSON.stringify(arrayCT))
+        }
+        function addText(n) {
+            if (n.value == "") {
+                alert("Por favor insira uma tendencia válida!")
+            }
+            else {
+                arrayCT = []
+                let text = n.value
+                p.innerText = `TENDENCIA: ${text}`
+                let delbtn = document.createElement("button")
+                delbtn.textContent = "Remover"
+                delbtn.setAttribute("class", "del btn")
+                p.appendChild(delbtn)
+                delbtn.addEventListener("click", deltask)
+                arrayCT.push(p.innerHTML)
+                localStorage.setItem("cacheCLyt", JSON.stringify(arrayCT))
+                inp.value = ""
+            }
+        }
+        // FEITOS
+
+        function feitos() {
+
+            if (inp2.value == "") {
+                alert("insira um feito válido")
+            } else {
+                let obj2 = {
+                    feito: inp2.value,
+                    id: Date.now()
+                }
+                array.push(obj2)
+                updateScreen2()
+                inp2.value = ""
+            }
+        }
+        function updateScreen2() {
+            list.innerHTML = ""
+            array.forEach(obj2 => {
+                let li = document.createElement("li")
+                li.appendChild(document.createTextNode(obj2.feito))
+                li.setAttribute("class", "litem f")
+                li.id = obj2.id
+                let delbtn2 = document.createElement("button")
+                delbtn2.textContent = "Remover"
+                delbtn2.onclick = function () { delTask2(obj2.id) }
+                console.log(delbtn2)
+                delbtn2.setAttribute('class', 'btn del')
+                li.appendChild(delbtn2)
+                list.appendChild(li)
+            })
+            localStorage.setItem("cacheC2Lyt", JSON.stringify(array))
+        }
+
+        function delTask2(id) {
+            array = array.filter(obj2 => obj2.id != id)
+            updateScreen2()
+        }
+
+        // ENTERS
+
+        inp.addEventListener("keyup", enter3);
+        function enter3() {
+            if (event.keyCode === 13) {
+                document.getElementById("btnC").click();
+            }
+        }
+        inp2.addEventListener("keyup", enter4);
+        function enter4() {
+            if (event.keyCode === 13) {
+                document.getElementById("btn").click();
+            }
+        }
+
+        // TESOURO
+
+        let deltask3 = function delTask3() {
+            link.innerText = ``
+            arrayCTes = [``]
+            arrayimgs = [``]
+            img.innerHTML = ``
+            spbtn.innerHTML = ``
+            localStorage.setItem("cacheCTesLyt", JSON.stringify(arrayCTes))
+            localStorage.setItem("cacheCTimgLyt", JSON.stringify(arrayimgs))
+        }
+        function addText2(n) {
+            if (n.value == "") {
+                alert("Por favor insira um nome válido!")
+            }
+            else {
+                spbtn.innerHTML = ""
+                arrayCTes = []
+                let text = n.value
+                link.innerHTML = `<span onclick="search()" id="spanT"><a href="https://wiki.runarcana.org/Itens_Mágicos#${text}" target="blank">${text}</a></span>`
+                let delbtn3 = document.createElement("button")
+                delbtn3.textContent = "Remover"
+                delbtn3.setAttribute("id", "delbtn2")
+                spbtn.appendChild(delbtn3)
+                delbtn3.addEventListener("click", deltask3)
+                arrayCTes.push(divspans.innerHTML)
+                inp3.value = ""
+                img.innerHTML = ""
+                img.innerHTML += `<input type="text" placeholder="Adicione o link da imagem do item" name="" id="inpTes"><button
+                    id="btnTes" onclick="changeImg()">OK</button>
+                    <img src="../assets/150px-The_Collector_item_HD.png" alt="">`
+                localStorage.setItem("cacheCTesLyt", JSON.stringify(arrayCTes))
+                arrayimgs = []
+                arrayimgs.push(img.innerHTML)
+                localStorage.setItem("cacheCTimgLyt", JSON.stringify(arrayimgs))
+
+            }
+        }
+        function changeImg() {
+            let inpTes = document.getElementById("inpTes")
+            arrayimgs = []
+            let text2 = inpTes.value
+            img.innerHTML = `<img src="${text2}" id="itemImg"><br><br><br><input type="text" placeholder="Adicione o link da imagem do item" name="" id="inpTes"><button
+                id="btnTes" onclick="changeImg()">OK</button>
+                <img src="../assets/150px-The_Collector_item_HD.png" alt="">`
+            arrayimgs.push(img.innerHTML)
+            localStorage.setItem("cacheCTimgLyt", JSON.stringify(arrayimgs))
+            inpTes.value = ""
+        } 
+        </script>
+</body>
+
+</html>

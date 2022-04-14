@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUNARCANA - Tyler</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./styleC.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="../index.html"><h1 class="header t">->RUNARCANA<-</h1></a>
+        <a href="../index.html"><h2 class="header">->Tyler<-</h2></a>
+    </header>
+    <main class="containerC">
+        <div class="basicInfo" onclick="fundoChange()">
+            <h1 class="nomeC">Tyler</h1>
+            <img src="../assets/tyler.png" alt="imgPers" class="imgPers" id="imgTyler">
+            <div class="doida" id="doida">
+                <p class="infosC">Nome: <span class="spanC">Tyler</span> </p>
+                <p class="infosC">Origem: <span class="spanC">Meio-Dragão</span></p>
+                <p class="infosC">Classe: <span class="spanC">Bruto</span></p>
+                <p class="infosC">Nível: <span class="spanC">Bruto 6</span></p>
+                <p class="infosC">Trabalho: <span class="spanC">Lutador e Empresário</span></p>
+                <p class="infosC">Região de origem: <span class="spanC">Ionia</span></p>
+                <p class="infosC">Linguagens: <span class="spanC">Ioniano, Draconico e Shurimane</span></p>
+            </div>
+        </div>
+
+        <div class="persInfo">
+            <div class="tend">
+                <p id="tendC">TENDENCIA: </p><input placeholder="A Tendencia dele é?" maxlength="30" id="inpC"
+                    type="text" name="tendencia" class="tendC"> <button id="btnC" onclick="addText(inp)">OK</button><br>
+            </div>
+            <div id="feitos">
+                <p id="ft">FEITOS</p>
+                <input id="fp" placeholder="Qual feito deseja adicionar?"></input>
+                <button id="btn" class="btn" onclick="feitos()">Add</button>
+                <ul id="list"></ul>
+            </div>
+            <div id="tesouros">
+                <p id="ts">TESOURO PRESUMIDO</p>
+                <input placeholder="Nome do item" id="nomeT" style="max-width: 10vw;"></input>
+                <div><div id="divspans"><span id="spanT"></span><span id="spanBtn"></span></div><button id="btnItem"
+                    onclick="addText2(inp3)">OK</button></div><br>
+                <div id="img">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../script/scriptC.js"> </script>
+</body>
+
+</html>

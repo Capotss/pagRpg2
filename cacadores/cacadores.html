@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUNARCANA - Caça à recompensas</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Changa+One&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="../index.html"><h1 class="header t">->RUNARCANA<-</h1></a>
+        <a href="../index.html"><h2 class="header">->BOUNTY HUNTERS<-</h2></a>
+    </header>
+    <main>
+        <div class="pagT"><h2 class="pagTt">CAÇADAS DISPONÍVEIS</h2></div>
+        <section class="containerI">
+            <div class="div1" id="div1">
+                <h2 class="divTit"><strong>SHURIMA</strong></h2>
+                <select name="itens" id="item1" onchange="setImage()">
+                    <option id="chalicar" value="https://wiki.runarcana.org/images/4/48/Chalicar.jpg" data-name="chalicar">Chalicar</option>
+                    <option value="../assets/token-chrollo.png">desconhecido</option>
+                </select>
+                <div id="divimg"></div>
+                <div id="divDesc">
+                    <p class="divDesc"> Local:</p>
+                    <p class="divDesc"> Nível recomendado:</p>
+                    <p class="divDesc"> Recompensa:</p>
+                    <p class="divDesc"> Local de Contato:</p>
+                </div>
+
+            </div>
+            <div class="div1" id="div2">
+                <h2 class="divTit">RUNETERRA</h2>
+                <select name="itens2" id="item2" onchange="setImage2()">
+                    <option value="https://wiki.runarcana.org/images/5/53/Mejai%27s_Soulstealer_item_Unused_HD.png">Ladrão de Almas de Mejai</option>
+                    <option value="https://wiki.runarcana.org/images/a/a4/Rejuvenation_Bead_item_HD.png">Pérola do Rejuvenescimento</option>
+                </select>
+                <div id="divimg2"></div>
+                <div id="divDesc2">
+                    <p class="divDesc2"> Local:</p>
+                    <p class="divDesc2"> Nível recomendado:</p>
+                    <p class="divDesc2"> Recompensa:</p>
+                    <p class="divDesc2"> Local de Contato:</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <script src="../script/scriptI.js"> </script>
+</body>
+
+</html>

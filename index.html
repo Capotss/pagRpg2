@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página RPG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Changa+One&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="header t">->RUNARCANA<-</h1>
+                <h2 class="header">->ANOTACOES<-</h2>
+    </header>
+    <main>
+        <div class="container">
+            <div class="pers">
+                <section id="personagens">
+                    <h2 class="header sub">->PERSONAGENS<-</h2>
+                    <h3>->Clique nos personagens para mais informações!</h3>
+                    <div onmouseover="borda1()" onmouseleave="lborda1()" class="tkd"><a class="doido" href="./chars/tyler.html"><img src="./assets/Token-Template.png" alt="">
+                            <p class="nomeP">Tyler</p>
+                        </a></div>
+                    <div onmouseover="borda2()" onmouseleave="lborda2()" class="tkd"><a class="doido" href="./chars/lyt.html"><img src="./assets/Token-Mat.png" alt="">
+                            <p class="nomeP">Lyt</p>
+                        </a></div>
+                    <div onmouseover="borda3()" onmouseleave="lborda3()" class="tkd"><a class="doido" href="./chars/theliel.html"><img src="./assets/Token-Lucas.png" alt="">
+                            <p class="doido" class="nomeP">Theliel</p>
+                        </a></div>
+                    <div onmouseover="borda4()" onmouseleave="lborda4()" class="tkd"><a class="doido" href="./chars/hex.html"><img src="./assets/Token-Hex.png" alt="">
+                            <p class="nomeP">Hex</p>
+                        </a></div>
+                </section>
+            </div>
+            <div class="info">
+                <section id="informacoes">
+                    <h2 class="header sub2">->INFORMAÇÕES<-</h2>
+                    <div class="searchB">
+                        PESQUISAR NA WIKI: <input  id="pesquisa" type="text" placeholder="Pesquisar na wiki"> <button id="btn1" onclick="search()">OK</button>
+                    </div>
+                        <div id="quests">
+                        QUESTS
+                        <input id="inp2" type="text" placeholder="Anote seus objetivos aqui"> <button id="btn3" onclick="addObj()">OK</button>
+                        <ul id="list">
+                        
+                        </ul><br>
+                    </div>
+                    <div id="diário">
+                        SEU DIÁRIO: <button id="btn4" onclick="abrirD()">VISITAR</button>
+                    </div>
+                    <div id="inventario">
+                        CAÇADORES DE RECOMPENSA: <button id="btn5" onclick="abrirI()">VISITAR</button>
+                    </div>
+                    <div>LOCAIS:
+                        <select name="caixaS" id="caixaS">
+                            <option value="op1">NASHMARAE</option>
+                            <option value="op2">Bel'zhun</option>
+                        </select><button onclick="local()" >OK</button>
+                        <div id="text"><p id="seila">HISTORIA:</p><br><p id="text1"></p></div>
+                    </div>
+
+
+                </section>
+            </div>
+    </main>
+    </main>
+
+
+    <script src="./script/script.js"></script>
+</body>
+
+</html>

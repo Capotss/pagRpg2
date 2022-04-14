@@ -1,0 +1,296 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    background-color: black;
+    color: white;
+    background-image: url(./assets/1896917.jpg);
+    background-repeat:repeat-x;
+    box-sizing: border-box;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+/* Título */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 100vw;
+    padding: 10px;
+    box-sizing: border-box;
+    animation-name: headerAni;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;  
+    animation-direction: alternate;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in-out;
+}
+@keyframes headerAni {
+    0%{border:3px solid rgba(0,0,255,0)}
+    100%{border:3px solid rgba(0,0,255,1)}
+}
+.t{
+    text-decoration: underline;
+    margin-bottom: 9px;
+}
+/* Imagens */
+img{
+    width: 150px;
+}
+/* Caixas */
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+/* Personagens */
+#personagens{
+    padding: 40px;
+    padding-left: 0;
+    box-sizing: border-box;
+    padding-right: 0;
+    padding-top: 10px;
+}
+.sub{
+   padding-left: 40px;
+   text-align: center;
+   margin-bottom: 40px;
+   text-decoration: underline;
+}
+.sub2{
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 40px;
+    text-decoration: underline;
+}
+.pers{
+    min-width: 30vw;
+    max-height: 80vh;
+    display: flex;
+    background-color:rgba(17, 0, 77, 0.8);
+    border-radius: 20px;
+    flex-direction: column;
+    margin-bottom: 40px;
+    overflow: auto;
+    transition: 1s;
+}
+.pers:hover{
+    background-color:rgba(40, 0, 134, 0.2);
+}
+.pers::-webkit-scrollbar{
+    display: none;
+    
+}
+.doido{
+    display: flex;
+    justify-content: space-between;
+}
+.tkd{
+    margin: 20px;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+@keyframes changeBColor{
+    0% { background-color:rgba(17, 0, 77, 0.8);border: solid 4px rgb(98, 0, 255);}
+    100% { background-color:rgba(40, 0, 134, 0.8);border: solid 4px rgb(68, 0, 255);}
+}
+/* Infos */
+#informacoes{
+    padding: 40px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    
+}
+.info{
+    min-width: 30vw;
+    max-height: 80vh;
+    background-color:rgba(17, 0, 77, 0.8);
+    border-radius: 20px;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    transition: 1s;
+}
+.info:hover{
+    background-color:rgba(40, 0, 134, 0.2);
+}
+#text{
+    width: 40vw;
+    max-height: 25vh;
+    overflow: auto;
+    margin-top: 20px;
+    background-color:rgba(89, 0, 255, 0.8);
+    padding: 20px;
+    border: 2px solid rgba(255,255,255,0);
+    transition: 1s;
+}
+#text::-webkit-scrollbar{
+    display: none;
+}
+#text:hover{
+    border: 2px solid white;
+}
+#text1{
+    display: inline;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+#seila{
+    display: block;
+}
+.searchB{
+    margin-bottom: 40px;
+}
+#caixaS{
+    background-color:rgba(255,255,255,1);
+    padding: 4px;
+    font-size: 1.2rem;
+}
+button{
+    padding: 4px;
+    font-size: 1.2rem;
+    background-color: rgba(0,0,155,0);
+    border: solid 2px white;
+    color: white;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 155, 0.8);
+}
+input{
+    padding: 4px;
+    font-size: 1.2rem;
+}
+#quests{
+    margin-bottom: 20px;
+}
+.litem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding:10px;
+    align-items: center;
+    border: solid rgba(255,255,255,0) 2px;
+    list-style:square inside;
+    text-align: center;
+    transition: 1s;
+    background-color:rgba(89, 0, 255, 0.8);
+    font-family: monospace;
+    font-size: 1.8rem;
+    overflow: auto;
+}
+
+#diário{
+    margin-bottom: 20px;
+}
+#inventario{
+    margin-bottom: 20px;
+}
+
+/* CAÇADORES DE RECOMPENSA */
+.pagT{
+    font-family: 'Changa One', cursive;
+    text-align: center;
+    margin-top: 5vh;
+    font-size: 1.7vw;
+    text-decoration: underline;
+
+}
+.i{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.containerI{
+    display: flex;
+    justify-content: space-around;    
+}
+#item1{
+    align-self: center;
+    padding: 10px 20px;
+    width: 20vw;
+}
+#item2{
+    align-self: center;
+    padding: 10px 20px;
+    width: 20vw;
+
+}
+.div1{
+    width: 25vw;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 25px;
+}
+#divimg{
+    align-self: center;
+    margin-top: 5%;
+    
+}
+#divimg2{
+    align-self: center;
+    margin-top: 5%;
+    
+}
+#image-swap1{
+    width: 10vw;
+    border: solid 2px rgba(255, 230, 0,0);
+    animation-name: changeColor;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;  
+    animation-direction: alternate;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in-out;
+}
+#image-swap2{
+    width: 10vw;
+    border: solid 2px rgba(255, 230, 0,0);
+    animation-name: changeColor;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;  
+    animation-direction: alternate;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in-out;
+}
+@keyframes changeColor{
+    0%{border: solid 5px rgba(255, 230, 0,0); }
+    100% {border: solid 5px rgba(255, 230, 0,1); ;}
+}
+@keyframes changeColor2{
+    0%{border: solid 5px rgba(255, 230, 0,0); }
+    100% {border: solid 5px rgb(195, 0, 255); ;}
+}
+@keyframes changeColor3{
+    0%{border: solid 5px rgba(0, 90, 0, 0) }
+    100% {border: solid 5px rgb(0, 240, 0); ;}
+}
+.divTit{
+    font-weight: 1000px;
+    align-self: center;
+    margin-bottom: 5%;
+    font-size: 2.5vw;
+    font-family: 'Changa One', cursive;
+}
+.divDesc{
+    font-family: monospace;
+    margin-top: 5%;
+    font-size:1.5vw;
+}
+
+

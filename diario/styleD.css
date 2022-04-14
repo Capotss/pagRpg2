@@ -1,0 +1,58 @@
+body{
+    background-image: url(../assets/1896917.jpg);
+    background-repeat:repeat-x;
+}
+header{
+    background-image:none;
+    border: solid 4px blue;
+}
+.containerD{
+    margin: auto;
+    display: flex;
+    width: 70vw;
+    min-height: 80vh;
+    max-height: 80vh;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 40px;
+    box-sizing: border-box;
+    align-items: center;
+
+}
+#inpD{
+    align-self: flex-start;
+    margin-bottom: 40px;
+}
+#ctpt2{
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 60%;
+    animation-name: changeBackD;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;  
+    animation-direction: alternate;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in-out;
+    border: 4px solid rgb(55, 0, 255);
+    padding: 20px;
+}
+#anotaBox{
+    min-height: 80%;
+    width: 100%;
+}
+#btnD{
+    margin-left: 20px;
+    border: 2px solid rgba(255,255,255,1);
+}
+.litem{
+    overflow: auto;
+ }
+
+@keyframes changeBackD{
+    0% {background-color: rgba(28, 0, 131, 0.4);}
+    100% {background-color: rgba(28, 0, 131, 0.6);}
+}
