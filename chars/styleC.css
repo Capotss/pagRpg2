@@ -43,6 +43,10 @@ header{
     border: 4px solid var(--var_corBorda);
     
 }
+.basicInfo:hover > #imgTyler{
+    border: 4px solid var(--var_corBorda);
+    
+}
 .basicInfo::-webkit-scrollbar{
     display: none;
 }
