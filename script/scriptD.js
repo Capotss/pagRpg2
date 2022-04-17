@@ -25,7 +25,7 @@ function addObjD() {
         updateScreen()
         inp.value =""
     }
-}
+}""
 function updateScreen(){
     list.innerHTML=""
     arrayD.forEach(obj => {
