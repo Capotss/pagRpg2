@@ -18,7 +18,7 @@ function addObjD() {
         let obj = {
             feito: inp.value,
             id: Date.now(),
-            dia: `${d.getDate()}/${d.getMonth()} -- ${d.getHours()}h:${d.getMinutes()}m`
+            dia: `${d.getDate()}/${d.getMonth()+1} -- ${d.getHours()}h:${d.getMinutes()}m`
         }
         console.log(obj)
         arrayD.push(obj)
