@@ -8,9 +8,10 @@ onload = function () {
     updateScreen()    
 }
 
-let d = new Date()
+
 console.log(d.getDate(), d.getMonth()+1)
 function addObjD() {
+    let d = new Date()
     if (inp.value == "") {
         alert("insira um objetivo válido")
     } else {
@@ -25,7 +26,7 @@ function addObjD() {
         updateScreen()
         inp.value =""
     }
-}""
+}
 function updateScreen(){
     list.innerHTML=""
     arrayD.forEach(obj => {
