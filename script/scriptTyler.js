@@ -12,53 +12,65 @@ let link = document.getElementById("spanT")
 let fundo = document.getElementById("doida")
 let tes = document.getElementById("tesouros")
 let img = document.getElementById("img")
-let spbtn = document.getElementById("spanBtn") 
+let spbtn = document.getElementById("spanBtn")
 let btnTes = document.getElementById("btnTes")
 
 inp.style.width = "10vw"
 inp.style.marginLeft = "1vw"
 
-onload = function (){
+onload = function () {
     // TENDENCIA
-    arrayCT = JSON.parse(localStorage.getItem("cacheC")) || []
-    p.innerHTML = arrayCT
-    if (arrayCT != `TENDENCIA: `){
-    let delbtno = document.getElementsByClassName("del btn")[0]
-    delbtno.addEventListener("click", deltask)
+    try {
+        arrayCT = JSON.parse(localStorage.getItem("cacheC")) || []
+        p.innerHTML = arrayCT
+        if (arrayCT != `TENDENCIA: `) {
+            let delbtno = document.getElementsByClassName("del btn")[0]
+            delbtno.addEventListener("click", deltask)
+        }
+
+    }
+    catch (err) {
+        console.log("erro", err)
     }
     // FEITOS
-    array = JSON.parse(localStorage.getItem('cacheC2')) || []
-    updateScreen2()
-    arrayCTes = JSON.parse(localStorage.getItem("cacheCTes")) || []
+    try {
+        array = JSON.parse(localStorage.getItem('cacheC2')) || []
+        updateScreen2()
+        arrayCTes = JSON.parse(localStorage.getItem("cacheCTes")) || []
+    }
+    catch (err) {
+        console.log("erro", err)
+    }
+
     link.innerHTML = arrayCTes
-    if (arrayCTes != ``){
+    if (arrayCTes != ``) {
         let delbtno2 = document.getElementById("delbtn2")
         delbtno2.addEventListener("click", deltask3)
-        }
+    }
     arrayimgs = JSON.parse(localStorage.getItem("cacheCTimg")) || []
     img.innerHTML = arrayimgs
 }
-let deltask = function delTask(){
+let deltask = function delTask() {
     p.innerText = `TENDENCIA: `
     arrayCT = [`TENDENCIA: `]
     localStorage.setItem("cacheC", JSON.stringify(arrayCT))
 }
-function addText(n){
-    if (n.value == ""){
+function addText(n) {
+    if (n.value == "") {
         alert("Por favor insira uma tendencia válida!")
     }
-    else{
-    arrayCT = []
-    let text = n.value
-    p.innerText = `TENDENCIA: ${text}`
-    let delbtn = document.createElement("button")
-    delbtn.textContent = "Remover"
-    delbtn.setAttribute("class", "del btn")
-    p.appendChild(delbtn)
-    delbtn.addEventListener("click", deltask)    
-    arrayCT.push(p.innerHTML)
-    localStorage.setItem("cacheC", JSON.stringify(arrayCT))
-    inp.value = ""
+    else {
+        arrayCT = []
+        let text = n.value
+        p.innerText = `TENDENCIA: ${text}`
+        let delbtn = document.createElement("button")
+        delbtn.textContent = "Remover"
+        delbtn.setAttribute("class", "del btn")
+        p.appendChild(delbtn)
+        delbtn.addEventListener("click", deltask)
+        arrayCT.push(p.innerHTML)
+        localStorage.setItem("cacheC", JSON.stringify(arrayCT))
+        inp.value = ""
     }
 }
 // FEITOS
@@ -74,11 +86,11 @@ function feitos() {
         }
         array.push(obj2)
         updateScreen2()
-        inp2.value =""
+        inp2.value = ""
     }
 }
-function updateScreen2(){
-    list.innerHTML=""
+function updateScreen2() {
+    list.innerHTML = ""
     array.forEach(obj2 => {
         let li = document.createElement("li")
         li.appendChild(document.createTextNode(obj2.feito))
@@ -117,44 +129,44 @@ function enter4() {
 
 // TESOURO
 
-let deltask3 = function delTask3(){
+let deltask3 = function delTask3() {
     link.innerText = ``
     arrayCTes = [``]
     arrayimgs = [``]
-    img.innerHTML= ``
-    spbtn.innerHTML= ``
+    img.innerHTML = ``
+    spbtn.innerHTML = ``
     localStorage.setItem("cacheCTes", JSON.stringify(arrayCTes))
     localStorage.setItem("cacheCTimg", JSON.stringify(arrayimgs))
 }
-function addText2(n){
-    if (n.value == ""){
+function addText2(n) {
+    if (n.value == "") {
         alert("Por favor insira um nome válido!")
     }
-    else{
-    spbtn.innerHTML = ""
-    arrayCTes = []
-    let text = n.value
-    link.innerHTML = `<span onclick="search()" id="spanT"><a href="https://wiki.runarcana.org/Itens_Mágicos#${text}" target="blank">${text}</a></span>`
-    let delbtn3 = document.createElement("button")
-    delbtn3.textContent = "Remover"
-    delbtn3.setAttribute("id", "delbtn2")
-    spbtn.appendChild(delbtn3)
-    delbtn3.addEventListener("click", deltask3)    
-    arrayCTes.push(divspans.innerHTML)
-    inp3.value = ""
-    img.innerHTML = ""
-    img.innerHTML += `<input type="text" placeholder="Adicione o link da imagem do item" name="" id="inpTes"><button
+    else {
+        spbtn.innerHTML = ""
+        arrayCTes = []
+        let text = n.value
+        link.innerHTML = `<span onclick="search()" id="spanT"><a href="https://wiki.runarcana.org/Itens_Mágicos#${text}" target="blank">${text}</a></span>`
+        let delbtn3 = document.createElement("button")
+        delbtn3.textContent = "Remover"
+        delbtn3.setAttribute("id", "delbtn2")
+        spbtn.appendChild(delbtn3)
+        delbtn3.addEventListener("click", deltask3)
+        arrayCTes.push(divspans.innerHTML)
+        inp3.value = ""
+        img.innerHTML = ""
+        img.innerHTML += `<input type="text" placeholder="Adicione o link da imagem do item" name="" id="inpTes"><button
     id="btnTes" onclick="changeImg()">OK</button>
     <img src="../assets/150px-The_Collector_item_HD.png" alt="">`
-    localStorage.setItem("cacheCTes", JSON.stringify(arrayCTes))
-    arrayimgs = []
-    arrayimgs.push(img.innerHTML)
-    localStorage.setItem("cacheCTimg", JSON.stringify(arrayimgs))
+        localStorage.setItem("cacheCTes", JSON.stringify(arrayCTes))
+        arrayimgs = []
+        arrayimgs.push(img.innerHTML)
+        localStorage.setItem("cacheCTimg", JSON.stringify(arrayimgs))
     }
 }
 
-function changeImg(){
-    let inpTes= document.getElementById("inpTes")
+function changeImg() {
+    let inpTes = document.getElementById("inpTes")
     arrayimgs = []
     let text2 = inpTes.value
     img.innerHTML = `<img src="${text2}" id="itemImg"><br><br><br><input type="text" placeholder="Adicione o link da imagem do item" name="" id="inpTes"><button

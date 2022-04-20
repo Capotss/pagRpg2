@@ -8,8 +8,6 @@ onload = function () {
     updateScreen()    
 }
 
-
-console.log(d.getDate(), d.getMonth()+1)
 function addObjD() {
     let d = new Date()
     if (inp.value == "") {
@@ -52,8 +50,9 @@ function delTask(id) {
     updateScreen()
 }
 
-inpD.addEventListener("keyup", enter2);
-
+inp.addEventListener("keyup", enter2);
+let btn = document.getElementById("btnD")
+console.log(btn)
 function enter2() {
     if (event.keyCode === 13) {
         document.getElementById("btnD").click();
