@@ -20,11 +20,14 @@ let arrayCT = []
 
         onload = function () {
             // TENDENCIA
-            arrayCT = JSON.parse(localStorage.getItem("cacheCTheliel")) || []
+            try{ arrayCT = JSON.parse(localStorage.getItem("cacheCTheliel")) || []
             p.innerHTML = arrayCT
             if (arrayCT != `TENDENCIA: `) {
                 let delbtno = document.getElementsByClassName("del btn")[0]
                 delbtno.addEventListener("click", deltask)
+            }}
+            catch (err) {
+                console.log("erro", err)
             }
             // FEITOS
             array = JSON.parse(localStorage.getItem('cacheC2Theliel')) || []
