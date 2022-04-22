@@ -77,7 +77,7 @@ function search() {
 
 let nashamarae = "Esta cidade costeira do norte, atualmente administrada por Hagyett Sabja. O povo de Nashramae é dedicado a preservar os caminhos do passado, celebrando seus ancestrais e os Ascensionados. Realiza um festival anual que celebra Rammus Rammus, onde milhares se reúnem para rolar e dar cambalhotas pela cidade. Suas principais exportações são produtos tecidos, como esteiras e rolos de tecido."
 let belzhun = "Esta cidade do norte é atualmente controlada por Noxus, mas tem uma grande insurgência rebelde contra Noxus. Conhecidos como os Sóis de Bel'Zhun, o grupo frequentemente troca armas com o Clã Medarda de Piltover."
-
+let demacia = "Capital Demaciana: A maior cidade do Reino, a capital é o principal centro político, cultural, religioso, militar, econômico e educacional do país. Demacia é um farol luminoso de esperança para a humanidade, e como tal a nação e sua Capital são as representações visuais deste conceito. Há uma sensação de limpeza e intocada ao olhar par suas cidades. Torres altas riscam os céus. Pedras brancas e mármore são os materiais de escolha na construção de edifícios Demacianos. Majestosas bandeiras voam alto ao longo dos parapeitos da cidade. As muralhas da cidade praticamente brilham com poder e nobreza. As casas nobres que residem dentro da cidade são os Buvelle, Casa de Sona; Crownguard, Casa de Garen e Luxanna; Laurent, Casa da Fiora; e Vayne, Casa de Vayne."
 function local() {
     console.log(document.getElementById("caixaS").value)
     let caixaS = document.getElementById("caixaS").value
@@ -89,6 +89,10 @@ function local() {
     if (caixaS == "op2") {
         historia.innerText = ""
         historia.innerText += " " + belzhun
+    }
+    if (caixaS == "op3") {
+        historia.innerText = ""
+        historia.innerText += " " + demacia
     }
 
 }
